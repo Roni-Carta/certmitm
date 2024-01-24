@@ -4,6 +4,9 @@ dns=$1
 
 echo "[*] Starting the DNS Server"
 
+kill -9 $(lsof -ti:53)
+
+
 dnscallback=$dns python3 dns-server/dns_server.py &
 
 
